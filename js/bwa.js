@@ -12,6 +12,18 @@ app.directive('bwaProject', function() {
   }
 });
 
+app.directive('scroll', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, elm, attrs) {
+          elm.click(function(){
+            var positionTop = angular.element('.bwa-projects').position().top - 50;
+            window.scrollTo(0, positionTop);
+          });
+        }
+    };
+});
+
 app.controller('BWAController', function ($scope, $http, $filter) {
 
   $scope.sortables = [
